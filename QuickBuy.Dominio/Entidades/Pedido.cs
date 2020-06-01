@@ -18,13 +18,13 @@ namespace QuickBuy.Dominio.Entidades
         public string EnderecoCompleto { get; set; }
         public string NumeroEndereco { get; set; }
         public int FormaPagamentoId { get; set; }
-        public ObjetoDeValor.FormaPagamento FormaPagamento { get; set; }
+        public  virtual FormaPagamento FormaPagamento { get; set; }
 
         /// <summary>
         /// Um Pedido deve ter pelo menos um item pedido
         /// ou muitos itens de pedidos
         /// </summary>
-        public ICollection<ItemPedido> ItensPedido { get; set; }
+        public virtual ICollection<ItemPedido> ItensPedido { get; set; }
 
         public override void Validate()
         {

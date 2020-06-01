@@ -35,6 +35,8 @@ namespace QuickBuy.Repositorio.Config
                 .Property(p => p.NumeroEndereco)
                 .IsRequired()
                 .HasMaxLength(10);
+
+            builder.HasOne(p => p.FormaPagamento);
         }
     }
 }
