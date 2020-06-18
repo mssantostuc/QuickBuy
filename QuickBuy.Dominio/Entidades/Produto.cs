@@ -10,6 +10,8 @@
 
         public decimal Preco { get; set; }
 
+        public string NomeArquivo { get; set; }
+
         public override void Validate()
         {
             throw new System.NotImplementedException();
