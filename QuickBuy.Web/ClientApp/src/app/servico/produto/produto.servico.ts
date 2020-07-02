@@ -25,7 +25,7 @@ export class ProdutoServico implements OnInit {
 
   public cadastrar(produto: Produto): Observable<Produto> {
 
-    return this.http.post<Produto>(this._baseUrl + "api/produto/cadastrar", JSON.stringify(produto), { headers: this.headers });
+    return this.http.post<Produto>(this._baseUrl + "api/produto", JSON.stringify(produto), { headers: this.headers });
   }
 
   public salvar(produto: Produto): Observable<Produto> {
@@ -34,23 +34,14 @@ export class ProdutoServico implements OnInit {
     var body = {
       nome: produto.nome,
       descricao: produto.descricao,
-      preco: produto.preco
-
+      preco: produto.preco,
+      nomeArquivo: produto.nomeArquivo
     }
 
     return this.http.post<Produto>(this._baseUrl + "api/produto/salvar", body, { headers });
   }
-  public deletar(produto: Produto): Observable<Produto> {
-    const headers = new HttpHeaders().set('content-type', 'application/json');
-
-    var body = {
-      nome: produto.nome,
-      descricao: produto.descricao,
-      preco: produto.preco
-
-    }
-   
-    return this.http.post<Produto>(this._baseUrl + "api/produto/deletar", body, { headers });
+  public deletar(produto: Produto): Observable<Produto[]> {
+    return this.http.post<Produto[]>(this._baseUrl + "api/produto/deletar", JSON.stringify(produto), { headers: this.headers });
   }
 
   public obterTodosProdutos(): Observable<Produto[]>{
